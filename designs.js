@@ -1,20 +1,27 @@
-// Select color input
-// Select size input
+
+//create variables for the height, width and color
 var height, width, color;
 
+//create a click event that will use the height and width submitted by the user in the form to call makeGrid()
 
-// When size is submitted by the user, call makeGrid()
 $("#sizePicker").on("submit", function (event) {
+	
 	event.preventDefault();
 	height = $("#inputHeight").val();
 	width = $("#inputWeight").val();
+	
+	//pass the value of the width and height to the make grid()
+	
 	makeGrid(height, width);
 	console.log("height: " + height + ", width: " + width);
 });
 
+// this creates the grid 
 function makeGrid(x, y) {
+	//remove existing table in the form and create a new one when the submit event occurs 
+	
 	$("tr").remove();
-
+	
 	for (var i = 1; i <= x; i++) {
 		
 		$("#pixelCanvas").append("<tr id = row" + i +"></tr>");
@@ -27,35 +34,26 @@ function makeGrid(x, y) {
         
     }
 	
+	
+	//Selects the color in the color picker and fill each table data <td> with it 
+	
 	$("td").click(function (){
 		
 		color = $("#colorPicker").val();
 		
-		//var color1 = $(this).css("background-color: black");
+		// this condition checks if there is a color in a table data<td> and removes it if double clicked or fills it if it is empty
 		
 		if ($(this).attr("style")){
+			
 			$(this).removeAttr("style");
+			
 		}else {
 			
 			$(this).attr("style", "background-color:"+color);
 			
 		}
-		
-		// $(this).each(function (1){
-			// if (i === color1){
-				
-				
-			// }
 			
-			
-			
-		// })
-		
-		
-	
 	});
-    
-	
     
 }
 
