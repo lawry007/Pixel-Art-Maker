@@ -1,6 +1,6 @@
 
 //create variables for the height, width and color
-var height, width, color;
+let height, width, color;
 
 //create a click event that will use the height and width submitted by the user in the form to call makeGrid()
 
@@ -22,12 +22,12 @@ function makeGrid(x, y) {
 	
 	$("tr").remove();
 	
-	for (var i = 1; i <= x; i++) {
+	for (let i = 1; i <= x; i++) {
 		
 		$("#pixelCanvas").append("<tr id = row" + i +"></tr>");
 		
 		
-		for (var j = 1; j <=y; j++){
+		for (let j = 1; j <=y; j++){
 			
 			$("#row" + i).append("<td></td>");
 		}
